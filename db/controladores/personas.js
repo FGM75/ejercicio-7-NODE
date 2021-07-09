@@ -16,6 +16,6 @@ const listarPersonas = async (dni, nombre, apellidos, edad) => {
 };
 
 module.exports = {
-  crearRegistroPersona,
+  registroPersona,
   listarPersonas,
 };
