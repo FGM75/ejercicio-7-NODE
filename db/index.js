@@ -15,6 +15,6 @@ mongoose.connect(
       console.log(err.message);
       return;
     }
-    console.log("Se ha iniciado la base de datos");
+    console.log("\n\n***** Se ha iniciado la base de datos *****");
   }
 );

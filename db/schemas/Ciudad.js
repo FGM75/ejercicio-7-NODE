@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const { VacunaSchema } = require("./Vacuna");
 
 const centroSchema = new Schema({
   nombre: {
@@ -12,6 +13,7 @@ const centroSchema = new Schema({
       required: true,
     },
   },
+  vacunas: [VacunaSchema],
 });
 
 const CiudadSchema = new Schema({
