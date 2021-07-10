@@ -1,10 +1,10 @@
-const Persona = require("../modelos/Persona");
+const Persona = require("../schemas/Persona");
 
 const registroPersona = async (dni, nombre, apellidos, edad) => {
   const persona = await Persona.create({
     nombre,
     apellidos,
-    dni: dni,
+    dni,
     edad,
   });
   return persona;

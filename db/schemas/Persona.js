@@ -1,5 +1,18 @@
 const { Schema, model } = require("mongoose");
 
+const centroSchema = new Schema({
+  nombre: {
+    type: String,
+    required: true,
+  },
+  localizacion: {
+    coordenadas: [Number, Number],
+    direccion: {
+      type: String,
+      required: true,
+    },
+  },
+});
 const PersonaSchema = new Schema({
   nombre: {
     type: String,
@@ -12,12 +25,11 @@ const PersonaSchema = new Schema({
     maxLength: 9,
   },
   edad: Number,
-  vacunas: {
-    type: [Date],
-    validate: [validarVacunas],
-  },
+  centro: centroSchema,
+  vacunaAdministrada: String,
+  dosis: [Date, Date],
 });
 
-const Persona = model("Persona", PersonaSchema, "persona");
+const Persona = model("Persona", PersonaSchema, "Persona");
 
 module.exports = Persona;
