@@ -23,14 +23,14 @@ const preguntasInicial = [
   },
 ];
 const preguntaVacuna = async () => {
-  const centros = await listarCentros();
+  const ciudad = await listarCentros();
   const vacunas = await listarVacunas();
   return [
     {
       name: "centroVacunacion",
       message: "\n\nCentro de vacunación",
       type: "list",
-      choices: centros[0].puntosVacunacion.map((centro) => ({
+      choices: ciudad[0].puntosVacunacion.map((centro) => ({
         name: centro.nombre,
         value: centro.nombre,
       })),
