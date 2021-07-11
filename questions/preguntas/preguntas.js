@@ -1,5 +1,7 @@
-const { listarCentros } = require("../../db/controladores/ciudades");
+const inquirer = require("inquirer");
+const { listarCentros, buscarVacunaCentro } = require("../../db/controladores/ciudades");
 const { listarVacunas } = require("../../db/controladores/vacunas");
+
 
 const preguntasInicial = [
   {
@@ -50,8 +52,34 @@ const preguntaVacuna = async () => {
       type: "confirm",
     },
   ];
+};  
+
+const preguntaDNI = async (persona) => {
+  const centros = await listarCentros();
+  console.log(centros)
+  const preguntarDNI = await inquirer.prompt([
+    {
+      name: "dni",
+      message: "Por favor inidique su DNI:",
+      type: "input",
+    },
+    {
+      name: "elegirCentroVacunacion",
+      message: "¿En que centro ha sido o sera vacunado?:",
+      type: "list",
+      choices: centros[0].puntosVacunacion.map((centro) => ({
+        name: centro.nombre,
+        value: centro._id,
+    }))
+    },
+  ]);
 };
-module.exports = {
+
+
+
+  module.exports = {
   preguntasInicial,
   preguntaVacuna,
+  preguntaDNI,
+  
 };
