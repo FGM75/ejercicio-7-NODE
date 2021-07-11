@@ -9,12 +9,12 @@ mongoose.connect(
     useFindAndModify: true,
     useCreateIndex: true,
   },
-  (err) => {
-    if (err) {
-      console.log("No se ha podido iniciar la base de datos");
-      console.log(err.message);
-      return;
-    }
-    console.log("\n\n***** Se ha iniciado la base de datos *****");
-  }
+  // (err) => {
+  //   if (err) {
+  //     console.log("No se ha podido iniciar la base de datos");
+  //     console.log(err.message);
+  //     return;
+  //   }
+  //   console.log("\n\n***** Se ha iniciado la base de datos *****");
+  // }
 );

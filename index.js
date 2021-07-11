@@ -9,6 +9,7 @@ const { preguntar } = require("./questions/preguntador");
 const {
   preguntasInicial,
   preguntaVacuna,
+  preguntaDNI,
 } = require("./questions/preguntas/preguntas");
 
 const agregarVacunaCentro = async (centro, nombreCentro, vacuna) => {
@@ -77,7 +78,7 @@ const init = async () => {
       await init();
     }
   } else if (opcion === "introducirPersonasVacunadas") {
-    const respuestaVacuna = await preguntar(await preguntaVacuna());
+    const respuestaVacuna = await preguntar(await preguntaDNI());
   } else if (opcion === "salir") {
     process.exit(0);
   }
