@@ -56,7 +56,6 @@ const preguntaVacuna = async () => {
 
 const preguntaDNI = async (persona) => {
   const centros = await listarCentros();
-  console.log(centros)
   const preguntarDNI = await inquirer.prompt([
     {
       name: "dni",
